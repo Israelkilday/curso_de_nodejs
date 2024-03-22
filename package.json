@@ -1,0 +1,28 @@
+{
+  "name": "curso_nodejs",
+  "version": "1.0.0",
+  "description": "nodejs",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx nodemon src/app.js",
+    "start": "node app.js",
+    "lint:fix": "npx eslint ./src --ext .js --fix --ignore-path ./.gitignore",
+    "lint:format": "npx prettier --loglevel warn --write \"./**/*.{js, ts}\" ",
+    "lint": "npm run lint:format && npm run lint:fix"
+  },
+  "author": "Israel Kilday",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "nodemon": "^3.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^3.2.5"
+  }
+}
