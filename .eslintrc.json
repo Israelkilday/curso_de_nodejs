@@ -1,7 +1,30 @@
+// {
+//     "extends": [
+//         "eslint:recommended",
+//         "plugin:node/recommended"
+//     ],
+//     "plugins": [
+//         "pretier"
+//     ],
+//     "rules": {
+//         "prettier/prettier": "error"
+//     }
+// }
+
 {
-    "extends": ["eslint:recommended", "plugin:node/recommended"],
-    "plugins": ["pretier"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
+        "prettier"
+    ],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
     }
 }
