@@ -1,9 +1,5 @@
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import path from 'path';
 
 export const routerLouder = (app) => {
   const modulesPath = path.join(__dirname, 'modules');
@@ -12,10 +8,10 @@ export const routerLouder = (app) => {
     const modulePath = path.join(modulesPath, dir);
 
     if (fs.statSync(modulePath).isDirectory()) {
-      const controllerPath = path.join(modulePath, `${dir}.controller`);
+      const controllerPath = path.join(modulePath, `${dir}.controller.ts`);
       if (fs.existsSync(controllerPath)) {
         // const controller = await import(controllerPath);
-        const controller = await import(`./modules/${dir}/${dir}.controller`);
+        const controller = await import(`./modules/${dir}/${dir}.controller.ts`);
 
         if (controller.default && typeof controller.default === 'function') {
           app.use(controller.default);

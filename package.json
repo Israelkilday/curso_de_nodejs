@@ -2,12 +2,11 @@
   "name": "curso_nodejs",
   "version": "1.0.0",
   "description": "nodejs",
-  "type": "module",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
-    "dev": "npx nodemon src/app.js",
-    "start": "node src/app.js",
-    "lint:fix": "npx eslint ./src --ext .js --fix",
+    "dev": "npx ts-node-dev --respawn --inspect --ignore-watch node_modules src/app.ts",
+    "start": "node src/app.ts",
+    "lint:fix": "npx eslint ./src --ext .ts --fix",
     "lint:format": "npx prettier --loglevel warn --write \"./**/*.{js, ts}\" ",
     "lint": "npm run lint:format && npm run lint:fix"
   },
@@ -28,6 +27,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "^3.2.5",
     "prisma": "^5.11.0",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.3"
   },
   "pre-commit": "lint"
