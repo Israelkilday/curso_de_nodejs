@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import { Router } from 'express';
+import { createUser, getUsers } from './user.servivce.js';
 
 const userRouter = Router();
 
@@ -7,13 +7,14 @@ const router = Router();
 
 userRouter.use('/user', router);
 
-router.get('/', async function (req, res) {
-  const prisma = new PrismaClient();
-  res.send('Hello World USER NOW');
+router.get('/', async (req, res) => {
+  const users = await getUsers();
+  res.send(users);
 });
 
-router.get('/:user_name', function (req, res) {
-  res.send('Nome do Usuário');
+router.post('/', async (req, res) => {
+  const user = await createUser(req.body);
+  res.send(user);
 });
 
 export default userRouter;
