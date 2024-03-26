@@ -12,10 +12,10 @@ export const routerLouder = (app) => {
     const modulePath = path.join(modulesPath, dir);
 
     if (fs.statSync(modulePath).isDirectory()) {
-      const controllerPath = path.join(modulePath, `${dir}.controller.js`);
+      const controllerPath = path.join(modulePath, `${dir}.controller`);
       if (fs.existsSync(controllerPath)) {
         // const controller = await import(controllerPath);
-        const controller = await import(`./modules/${dir}/${dir}.controller.js`);
+        const controller = await import(`./modules/${dir}/${dir}.controller`);
 
         if (controller.default && typeof controller.default === 'function') {
           app.use(controller.default);

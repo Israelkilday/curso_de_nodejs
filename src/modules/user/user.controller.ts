@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createUser, getUsers } from './user.servivce.js';
+import { createUser, getUsers } from './user.servivce';
 
 const userRouter = Router();
 
