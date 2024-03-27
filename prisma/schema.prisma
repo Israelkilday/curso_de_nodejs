@@ -21,8 +21,31 @@ model User {
   phone String
   password String
   typeUser Int
-  creatdAt DateTime @default(now())
+  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+// export interface UserModel {
+//   id: string;
+//   name: string;
+//   cpf: string;
+//   email: string;
+//   password: string;
+//   typeUser: number;
+//   phone: string;
+//   creatdAt: Date;
+//   updatedAt: Date;
+// }
+
+
+// export interface UseInsertDTO {
+//   name: string;
+//   cpf: string;
+//   email: string;
+//   password: string;
+//   typeUser: number;
+//   phone: string;
+// }
+
 
 
