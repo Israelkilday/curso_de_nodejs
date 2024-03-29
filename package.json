@@ -8,7 +8,8 @@
     "start": "node src/app.ts",
     "lint:fix": "npx eslint ./src --ext .ts --fix",
     "lint:format": "npx prettier --log-level warn --write \"./**/*.{js, ts}\" ",
-    "lint": "npm run lint:format && npm run lint:fix"
+    "lint": "npm run lint:format && npm run lint:fix",
+    "format": "npx prettier --log-level warn --write \"./**/*.{js, ts}\" "
   },
   "author": "Israel Kilday",
   "license": "ISC",
