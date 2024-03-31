@@ -2,6 +2,7 @@ import { Request, Response, Router } from 'express';
 import { createUser, getUsers } from './user.servivce';
 import { UseInsertDTO } from './dtos/user-insert.dto';
 import { NotFoundException } from '@exceptions/not-found-exception';
+import { ReturnError } from '@exceptions/dtos/return-error.dto';
 
 const userRouter = Router();
 
@@ -12,11 +13,9 @@ userRouter.use('/user', router);
 router.get('/', async (_, res: Response): Promise<void> => {
   const users = await getUsers().catch((error) => {
     if (error instanceof NotFoundException) {
-      console.log('passou aqui');
-
       res.status(204);
     } else {
-      res.status(500).send(error.message);
+      new ReturnError(res, error);
     }
   });
   res.send(users);
