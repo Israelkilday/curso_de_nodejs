@@ -14,13 +14,13 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String
-  email String
-  cpf String
-  phone String
-  password String
-  typeUser Int
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  cpf       String   @unique
+  phone     String
+  password  String
+  typeUser  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -37,7 +37,6 @@ model User {
 //   updatedAt: Date;
 // }
 
-
 // export interface UseInsertDTO {
 //   name: string;
 //   cpf: string;
@@ -46,6 +45,3 @@ model User {
 //   typeUser: number;
 //   phone: string;
 // }
-
-
-
