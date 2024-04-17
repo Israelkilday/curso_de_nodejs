@@ -20,4 +20,20 @@ router.post(
   },
 );
 
+// router.post(
+//   '/',
+//   async (req: Request<undefined, undefined, AuthDTO>, res: Response): Promise<void> => {
+//     try {
+//       const user = await validateAuth(req.body);
+//       res.send(user);
+//     } catch (error) {
+//       const returnError = new ReturnError(error);
+//       returnError.sendResponse(res);
+//       return;
+//     }
+//   },
+// );
+
 export default authRouter;
+
+// res.status(401).send({ error: 'Invalid credentials' });
