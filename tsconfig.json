@@ -16,7 +16,8 @@
       "@modules/*": ["./src/modules/*"],
       "@exceptions/*": ["./src/exceptions/*"],
       "@utils/*": ["./src/utils/*"],
-      "@enums/*": ["./src/enums/*"]
+      "@enums/*": ["./src/enums/*"],
+      "@middlewares/*": ["./src/middlewares/*"]
     }
   }
 }

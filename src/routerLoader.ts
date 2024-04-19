@@ -1,7 +1,7 @@
+import { exceptionHandleMidleware } from '@middlewares/exception.midleware';
 import { Express } from 'express-serve-static-core';
 import fs from 'fs';
 import path from 'path';
-// import { Express } from 'express-serve-static-core';
 
 export const routerLouder = (app: Express): void => {
   const modulesPath = path.join(__dirname, 'modules');
@@ -17,6 +17,7 @@ export const routerLouder = (app: Express): void => {
 
         if (controller.default && typeof controller.default === 'function') {
           app.use(controller.default);
+          app.use(exceptionHandleMidleware);
         }
       }
     }
