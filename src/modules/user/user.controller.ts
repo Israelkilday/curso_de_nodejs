@@ -3,7 +3,7 @@ import { createUser, getUsers } from './user.servivce';
 import { UseInsertDTO } from './dtos/user-insert.dto';
 import { ReturnError } from '@exceptions/dtos/return-error.dto';
 import { NotFoundException } from '@exceptions/not-found-exception';
-import { authMiddleware } from '@middlewares/auth.middlaware';
+import { authAdminMiddleware } from '@middlewares/auth-admin.middleware';
 
 const createUserController = async (
   req: Request<undefined, undefined, UseInsertDTO>,
@@ -32,7 +32,7 @@ const router = Router();
 userRouter.use('/user', router);
 
 router.post('/', createUserController);
-router.use(authMiddleware);
+router.use(authAdminMiddleware);
 router.get('/', getUsersController);
 
 export default userRouter;
