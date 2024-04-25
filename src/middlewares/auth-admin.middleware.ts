@@ -5,8 +5,6 @@ import { UserAuth } from '@modules/auth/dtos/user-auth.dto';
 import { verifyToken } from '@utils/auth';
 import { NextFunction, Request, Response } from 'express';
 
-const name = '';
-
 export const authAdminMiddleware = async (
   req: Request,
   res: Response,

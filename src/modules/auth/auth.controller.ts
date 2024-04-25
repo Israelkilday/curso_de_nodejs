@@ -20,4 +20,3 @@ router.post('/', auth);
 
 export default authRouter;
 
-// res.status(401).send({ error: 'Invalid credentials' });
