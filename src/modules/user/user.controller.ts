@@ -1,9 +1,11 @@
 import { Request, Response, Router } from 'express';
-import { createUser, getUsers } from './user.servivce';
+import { createUser, editPassword, getUsers } from './user.servivce';
 import { UseInsertDTO } from './dtos/user-insert.dto';
 import { ReturnError } from '@exceptions/dtos/return-error.dto';
 import { NotFoundException } from '@exceptions/not-found-exception';
 import { authAdminMiddleware } from '@middlewares/auth-admin.middleware';
+import { authMiddleware } from '@middlewares/auth.middlaware';
+import { UserEditPasswordDTO } from './dtos/user-edit-password.dto';
 
 const createUserController = async (
   req: Request<undefined, undefined, UseInsertDTO>,
@@ -26,12 +28,25 @@ const getUsersController = async (req: Request, res: Response): Promise<void> =>
   res.send(users);
 };
 
+const editPasswordController = async (
+  req: Request<undefined, undefined, UserEditPasswordDTO>,
+  res: Response,
+): Promise<void> => {
+  const user = await editPassword(5, req.body).catch((error) => {
+    new ReturnError(res, error);
+  });
+
+  res.send(user);
+};
+
 const userRouter = Router();
 const router = Router();
 
 userRouter.use('/user', router);
 
 router.post('/', createUserController);
+router.use(authMiddleware);
+router.patch('/', editPasswordController);
 router.use(authAdminMiddleware);
 router.get('/', getUsersController);
 
