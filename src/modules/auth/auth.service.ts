@@ -8,6 +8,8 @@ import { generateToken } from '@utils/auth';
 export const validateAuth = async (authDto: AuthDTO): Promise<AuthModel> => {
   const user = await getUserByEmail(authDto.email);
 
+  console.log('teste');
+
   const isValidPassword = await validatePassword(authDto.password, user.password);
 
   if (!isValidPassword) {
