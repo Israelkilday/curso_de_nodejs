@@ -73,46 +73,4 @@ module.exports = {
 //   }
 // }
 
-// 'sort-imports': [
-//   'error',
-//   {
-//     ignoreCase: true,
-//     ignoreDeclarationSort: true,
-//     ignoreMemberSort: false,
-//   },
-// ],
-// 'import/order': [
-//   'error',
-//   {
-//     groups: ['builtin', 'external', 'internal'],
-//     pathGroups: [
-//       {
-//         pattern: 'react',
-//         group: 'external',
-//         position: 'before',
-//       },
-//     ],
-//   },
-// ],
 
-// 'sort-imports': [
-//   'error',
-//   {
-//     ignoreCase: true,
-//     ignoreDeclarationSort: true,
-//     ignoreMemberSort: false,
-//   },
-// ],
-// 'import/order': [
-//   'error',
-//   {
-//     groups: ['builtin', 'external', 'internal'],
-//     pathGroups: [
-//       {
-//         pattern: 'react',
-//         group: 'external',
-//         position: 'before',
-//       },
-//     ],
-//   },
-// ],
